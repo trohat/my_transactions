@@ -13,6 +13,7 @@ import { formatDate } from "../../util/helpers";
 
 const Record = ({
   item: { created, name, value, type, id },
+  editTransaction,
   deleteTransaction
 }) => {
   return (
@@ -25,7 +26,7 @@ const Record = ({
         <MinusAmountCol>- {value}</MinusAmountCol>
       )}
       <ButtonCol>
-        <EditButton>Upravit</EditButton>
+        <EditButton onClick={() => editTransaction(id)}>Upravit</EditButton>
         <DelButton onClick={() => deleteTransaction(id)}>Smazat</DelButton>
       </ButtonCol>
     </RecordDiv>

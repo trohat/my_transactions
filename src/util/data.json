@@ -1,13 +1,6 @@
 {
   "transactions": [
     {
-      "name": "Lorem voluptate",
-      "type": "income",
-      "value": 643,
-      "created": 1487911188000,
-      "id": 1487911188000
-    },
-    {
       "name": "consectetur fugiat",
       "type": "expense",
       "value": 338,

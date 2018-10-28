@@ -6,23 +6,52 @@ export const OverviewDisplay = styled.div`
 `;
 
 export const Menu = styled.div`
-  margin-top: 100px;
   width: 20%;
   display: inline-block;
 
-  h4 {
+  h2 {
+    margin-bottom: 45px;
+  }
+
+  h3 {
+    margin-top: 45px;
     margin-bottom: 6px;
   }
 
   & ul {
     padding-left: 0px;
-    margin-top: 5px;
+    margin-top: 15px;
+    margin-bottom: 30px;
   }
 
   & li {
     list-style-type: none;
   }
 `;
+
+export const ShowButton = styled.button`
+  font-weight: bold;
+  min-width: 115px;
+  padding: 6px;
+  margin: 4px;
+`;
+
+export const AddButton = styled(ShowButton)`
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 10px;
+  font-size: 0.9em;
+`;
+
+export const IncomeButton = styled(ShowButton)`
+  color: ${plusColor};
+`;
+
+export const ExpenseButton = styled(ShowButton)`
+  color: ${minusColor};
+`;
+
+export const AllButton = styled(ShowButton)``;
 
 export const Table = styled.div`
   text-align: left;
@@ -31,6 +60,10 @@ export const Table = styled.div`
   padding-left: 20px;
   display: inline-block;
   margin-bottom: 40px;
+
+  @media only screen and (max-width: 1040px) {
+    width: 80%;
+  }
 `;
 
 export const Heading = styled.header`
@@ -56,8 +89,6 @@ export const RecordDiv = styled.div`
 const InlineDiv = styled.div`
   display: inline-block;
 `;
-
-export const EmptyCol = styled(InlineDiv)``;
 
 export const DateCol = styled(InlineDiv)`
   width: 20%;
