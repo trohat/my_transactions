@@ -4,11 +4,11 @@ import {
   AddButton,
   IncomeButton,
   ExpenseButton,
-  AllButton
-} from "./overviewstyles";
+  StyledButton
+} from "./transactionstyles";
 import { getDayBoundaries, getMonthBoundaries } from "../../util/helpers";
 
-class OverviewMenu extends React.Component {
+class TransactionMenu extends React.Component {
   lastDay = () => {
     const date = new Date();
     const day = getDayBoundaries(date);
@@ -46,29 +46,44 @@ class OverviewMenu extends React.Component {
             </ExpenseButton>
           </li>
           <li>
-            <AllButton onClick={() => this.props.changeTypeFilter("all")}>
+            <StyledButton onClick={() => this.props.changeTypeFilter("all")}>
               Zobrazit vše
-            </AllButton>
+            </StyledButton>
           </li>
         </ul>
         <h3>Za období:</h3>
         <ul>
           <li>
-            <AllButton onClick={this.lastDay}>Dnešní den</AllButton>
+            <StyledButton onClick={this.lastDay}>Dnešní den</StyledButton>
           </li>
           <li>
-            <AllButton onClick={this.lastMonth}>Poslední měsíc</AllButton>
+            <StyledButton onClick={this.lastMonth}>Poslední měsíc</StyledButton>
           </li>
           <li>
-            <AllButton onClick={() => this.props.changeTimeFilter(0, 0)}>
+            <StyledButton onClick={() => this.props.changeTimeFilter(0, 0)}>
               Zobrazit vše
-            </AllButton>
+            </StyledButton>
           </li>
         </ul>
-        <AddButton>Přidat novou transakci</AddButton>
+        <h3>Seřadit podle data:</h3>
+        <ul>
+          <li>
+            <StyledButton onClick={() => this.props.sortTransactions("asc")}>
+              Vzestupně
+            </StyledButton>
+          </li>
+          <li>
+            <StyledButton onClick={() => this.props.sortTransactions("desc")}>
+              Sestupně
+            </StyledButton>
+          </li>
+        </ul>
+        <AddButton onClick={this.props.addTransaction}>
+          Přidat novou transakci
+        </AddButton>
       </Menu>
     );
   }
 }
 
-export default OverviewMenu;
+export default TransactionMenu;

@@ -8,7 +8,7 @@ import {
   ButtonCol,
   EditButton,
   DelButton
-} from "./overviewstyles";
+} from "./transactionstyles";
 import { formatDate } from "../../util/helpers";
 
 const Record = ({

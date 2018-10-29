@@ -7,7 +7,7 @@ class WelcomePage extends React.Component {
       <React.Fragment>
         <h2>Vítejte v aplikaci moje peněženka!</h2>
         <div>
-          <Link to="/transaction/new">Přidat novou transakci</Link>
+          <Link to="/transactions">Zobrazit transakce</Link>
         </div>
         <div>
           <Link to="/overview">Zobrazit přehledy</Link>

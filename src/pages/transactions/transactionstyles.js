@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { plusColor, minusColor, stripsColor } from "../../util/constants";
 
-export const OverviewDisplay = styled.div`
+export const TransactionDisplay = styled.div`
   display: flex;
 `;
 
@@ -29,29 +29,27 @@ export const Menu = styled.div`
   }
 `;
 
-export const ShowButton = styled.button`
+export const StyledButton = styled.button`
   font-weight: bold;
   min-width: 115px;
   padding: 6px;
   margin: 4px;
 `;
 
-export const AddButton = styled(ShowButton)`
+export const AddButton = styled(StyledButton)`
   margin-bottom: 30px;
   margin-top: 30px;
   padding: 10px;
   font-size: 0.9em;
 `;
 
-export const IncomeButton = styled(ShowButton)`
+export const IncomeButton = styled(StyledButton)`
   color: ${plusColor};
 `;
 
-export const ExpenseButton = styled(ShowButton)`
+export const ExpenseButton = styled(StyledButton)`
   color: ${minusColor};
 `;
-
-export const AllButton = styled(ShowButton)``;
 
 export const Table = styled.div`
   text-align: left;

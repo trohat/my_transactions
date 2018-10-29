@@ -1,8 +1,14 @@
 import React from "react";
-import { Table, Heading, DateCol, DescCol, AmountCol } from "./overviewstyles";
+import {
+  Table,
+  Heading,
+  DateCol,
+  DescCol,
+  AmountCol
+} from "./transactionstyles";
 import Record from "./Record";
 
-class OverviewTable extends React.Component {
+class TransactionTable extends React.Component {
   render() {
     const timeFilterAll = this.props.filter.to === 0;
     return (
@@ -34,4 +40,4 @@ class OverviewTable extends React.Component {
   }
 }
 
-export default OverviewTable;
+export default TransactionTable;

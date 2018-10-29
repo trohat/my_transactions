@@ -1,0 +1,158 @@
+import React from "react";
+import Modal from "react-modal";
+import axios from "../../util/axios";
+import TransactionMenu from "./TransactionMenu";
+import TransactionTable from "./TransactionTable";
+import AddTransactionForm from "./AddTransactionForm";
+import { TransactionDisplay } from "./transactionstyles";
+
+class TransactionPage extends React.Component {
+  state = {
+    transactions: [],
+    filter: {
+      type: "all",
+      from: 0,
+      to: 0
+    },
+    newTransaction: {
+      name: "",
+      type: "income",
+      value: 0,
+      id: 0,
+      created: 0
+    },
+    adding: true,
+    // "adding:false" means we are just editing an existing transaction
+    showModal: false
+  };
+
+  componentDidMount() {
+    axios.get("/transactions").then(response => {
+      this.setState({ transactions: response.data });
+    });
+  }
+
+  addTransaction = () => {
+    this.setState({
+      newTransaction: {
+        name: "",
+        type: "income",
+        value: 0
+      },
+      adding: true,
+      showModal: true
+    });
+  };
+
+  editTransaction = id => {
+    const myTransaction = this.state.transactions.filter(
+      transaction => transaction.id === id
+    )[0];
+    this.setState({
+      newTransaction: myTransaction,
+      adding: false,
+      showModal: true
+    });
+  };
+
+  deleteTransaction = id => {
+    const transactions = this.state.transactions.filter(
+      transaction => transaction.id !== id
+    );
+    this.setState({ transactions });
+    axios.delete(`/transactions/${id}`).then(response => {
+      console.log(response);
+    });
+  };
+
+  handleChange = e => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState(prevState => ({
+      newTransaction: {
+        ...prevState.newTransaction,
+        [name]: value
+      }
+    }));
+  };
+
+  handleSubmit = () => {
+    this.setState({ showModal: false });
+    const newTransaction = this.state.newTransaction;
+    if (this.state.adding) {
+      const id = new Date().getTime();
+      newTransaction.created = id;
+      newTransaction.id = id;
+      axios.post(`/transactions`, newTransaction).then(response => {
+        console.log(response.data);
+      });
+      this.setState(prevState => ({
+        transactions: [...prevState.transactions, newTransaction]
+      }));
+    } else {
+      axios
+        .put(`/transactions/${newTransaction.id}`, newTransaction)
+        .then(response => {
+          console.log(response.data);
+        });
+      const transactions = this.state.transactions.map(
+        transaction =>
+          newTransaction.id === transaction.id ? newTransaction : transaction
+      );
+      this.setState({ transactions });
+    }
+  };
+
+  changeTypeFilter = type => {
+    const filter = this.state.filter;
+    this.setState({ filter: { ...filter, type } });
+  };
+
+  changeTimeFilter = (from, to) => {
+    const filter = this.state.filter;
+    this.setState({ filter: { ...filter, from, to } });
+  };
+
+  sortTransactions = how => {
+    let transactions = this.state.transactions;
+    if (how === "asc") {
+      transactions.sort((t1, t2) => t1.created - t2.created);
+    } else {
+      transactions.sort((t1, t2) => t2.created - t1.created);
+    }
+    this.setState({ transactions });
+  };
+
+  closeModal = () => {
+    this.setState({ showModal: false });
+  };
+
+  render() {
+    return (
+      <TransactionDisplay>
+        <TransactionMenu
+          changeTypeFilter={this.changeTypeFilter}
+          changeTimeFilter={this.changeTimeFilter}
+          sortTransactions={this.sortTransactions}
+          addTransaction={this.addTransaction}
+        />
+        <TransactionTable
+          transactions={this.state.transactions}
+          filter={this.state.filter}
+          editTransaction={this.editTransaction}
+          deleteTransaction={this.deleteTransaction}
+        />
+        <Modal isOpen={this.state.showModal} ariaHideApp={false}>
+          <AddTransactionForm
+            newTransaction={this.state.newTransaction}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+          />
+          <button onClick={this.closeModal}>Zavřít</button>
+        </Modal>
+      </TransactionDisplay>
+    );
+  }
+}
+
+export default TransactionPage;
