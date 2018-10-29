@@ -4,7 +4,8 @@ import {
   AddButton,
   IncomeButton,
   ExpenseButton,
-  StyledButton
+  StyledButton,
+  SortingButton
 } from "./transactionstyles";
 import { getDayBoundaries, getMonthBoundaries } from "../../util/helpers";
 
@@ -68,14 +69,16 @@ class TransactionMenu extends React.Component {
         <h3>Seřadit podle data:</h3>
         <ul>
           <li>
-            <StyledButton onClick={() => this.props.sortTransactions("asc")}>
-              Vzestupně
-            </StyledButton>
+            <SortingButton onClick={() => this.props.sortTransactions("asc")}>
+              <span>Vzestupně</span>
+              <span>{"\u25B2"}</span>
+            </SortingButton>
           </li>
           <li>
-            <StyledButton onClick={() => this.props.sortTransactions("desc")}>
-              Sestupně
-            </StyledButton>
+            <SortingButton onClick={() => this.props.sortTransactions("desc")}>
+              <span>Sestupně</span>
+              <span>{"\u25BC"}</span>
+            </SortingButton>
           </li>
         </ul>
         <AddButton onClick={this.props.addTransaction}>

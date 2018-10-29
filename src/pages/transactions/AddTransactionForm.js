@@ -4,7 +4,8 @@ import {
   NumberInput,
   TextInput,
   StyledSelect,
-  StyledModalButton
+  OkButton,
+  CancelButton
 } from "./transactionstyles";
 
 const AddTransactionForm = ({
@@ -16,7 +17,7 @@ const AddTransactionForm = ({
 }) => {
   return (
     <FormWrapper>
-      <h3>{adding ? "Přidat novou transakci:" : "Upravit transakci:"}</h3>
+      <h3>{adding ? "Přidat novou transakci:" : "Editovat transakci:"}</h3>
       <label htmlFor="value">Částka: </label>
       <NumberInput
         type="number"
@@ -38,8 +39,8 @@ const AddTransactionForm = ({
         <option value="income">Příjem</option>
         <option value="expense">Výdej</option>
       </StyledSelect>
-      <StyledModalButton onClick={handleSubmit}>Uložit</StyledModalButton>
-      <StyledModalButton onClick={closeModal}>Zrušit</StyledModalButton>
+      <OkButton onClick={handleSubmit}>{"\u2714"}</OkButton>
+      <CancelButton onClick={closeModal}>{"\u2718"}</CancelButton>
     </FormWrapper>
   );
 };

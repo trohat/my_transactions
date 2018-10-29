@@ -51,6 +51,11 @@ export const ExpenseButton = styled(StyledButton)`
   color: ${minusColor};
 `;
 
+export const SortingButton = styled(StyledButton)`
+  display: inline-flex;
+  justify-content: space-between;
+`;
+
 export const Table = styled.div`
   text-align: left;
   width: 60%;
@@ -114,17 +119,19 @@ export const MinusAmountCol = styled(AmountCol)`
 
 export const ButtonCol = styled(InlineDiv)`
   width: 25%;
-  text-align: center;
-
-  button {
-    margin-left: 8px;
-    margin-right: 8px;
-  }
+  text-align: right;
 `;
 
-export const EditButton = styled.button``;
+export const RecordButton = styled.button`
+  margin-left: 8px;
+  margin-right: 8px;
+`;
 
-export const DelButton = styled.button``;
+export const EditButton = styled(RecordButton)``;
+
+export const DelButton = styled(RecordButton)`
+  margin-right: 3px;
+`;
 
 export const FormWrapper = styled.div`
   font-size: 1em;
@@ -155,16 +162,24 @@ export const StyledSelect = styled.select`
   height: 30px;
   padding-left: 10px;
   padding-right: 10px;
-  margin: 10px auto 20px auto;
+  margin: 10px auto 40px auto;
   font-weight: normal;
   font-size: inherit;
 `;
 
 export const StyledModalButton = styled.button`
-  padding: 3px 12px;
-  margin: 10px;
-  font-size: inherit;
-  font-weight: inherit;
+  padding: 8px 16px;
+  margin: 15px;
+  font-size: 1.4em;
+  font-weight: bold;
+`;
+
+export const OkButton = styled(StyledModalButton)`
+  color: green;
+`;
+
+export const CancelButton = styled(StyledModalButton)`
+  color: red;
 `;
 
 export const modalStyles = {

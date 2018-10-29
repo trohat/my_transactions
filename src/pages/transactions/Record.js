@@ -26,8 +26,12 @@ const Record = ({
         <MinusAmountCol>- {value}</MinusAmountCol>
       )}
       <ButtonCol>
-        <EditButton onClick={() => editTransaction(id)}>Upravit</EditButton>
-        <DelButton onClick={() => deleteTransaction(id)}>Smazat</DelButton>
+        <EditButton onClick={() => editTransaction(id)}>
+          {"\u270E"} Upravit
+        </EditButton>
+        <DelButton onClick={() => deleteTransaction(id)}>
+          {"\u2716"} Smazat
+        </DelButton>
       </ButtonCol>
     </RecordDiv>
   );
