@@ -4,7 +4,7 @@ import axios from "../../util/axios";
 import TransactionMenu from "./TransactionMenu";
 import TransactionTable from "./TransactionTable";
 import AddTransactionForm from "./AddTransactionForm";
-import { TransactionDisplay } from "./transactionstyles";
+import { TransactionDisplay, modalStyles } from "./transactionstyles";
 
 class TransactionPage extends React.Component {
   state = {
@@ -16,13 +16,14 @@ class TransactionPage extends React.Component {
     },
     newTransaction: {
       name: "",
-      type: "income",
+      type: "expense",
       value: 0,
       id: 0,
       created: 0
     },
     adding: true,
     // "adding:false" means we are just editing an existing transaction
+    sorted: null,
     showModal: false
   };
 
@@ -36,7 +37,7 @@ class TransactionPage extends React.Component {
     this.setState({
       newTransaction: {
         name: "",
-        type: "income",
+        type: "expense",
         value: 0
       },
       adding: true,
@@ -76,7 +77,7 @@ class TransactionPage extends React.Component {
     }));
   };
 
-  handleSubmit = () => {
+  handleSubmit = async () => {
     this.setState({ showModal: false });
     const newTransaction = this.state.newTransaction;
     if (this.state.adding) {
@@ -86,9 +87,12 @@ class TransactionPage extends React.Component {
       axios.post(`/transactions`, newTransaction).then(response => {
         console.log(response.data);
       });
-      this.setState(prevState => ({
+      await this.setState(prevState => ({
         transactions: [...prevState.transactions, newTransaction]
       }));
+      if (this.state.sorted) {
+        this.sortTransactions(this.state.sorted);
+      }
     } else {
       axios
         .put(`/transactions/${newTransaction.id}`, newTransaction)
@@ -120,7 +124,7 @@ class TransactionPage extends React.Component {
     } else {
       transactions.sort((t1, t2) => t2.created - t1.created);
     }
-    this.setState({ transactions });
+    this.setState({ transactions, sorted: how });
   };
 
   closeModal = () => {
@@ -142,13 +146,18 @@ class TransactionPage extends React.Component {
           editTransaction={this.editTransaction}
           deleteTransaction={this.deleteTransaction}
         />
-        <Modal isOpen={this.state.showModal} ariaHideApp={false}>
+        <Modal
+          isOpen={this.state.showModal}
+          style={modalStyles}
+          ariaHideApp={false}
+        >
           <AddTransactionForm
+            adding={this.state.adding}
             newTransaction={this.state.newTransaction}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            closeModal={this.closeModal}
           />
-          <button onClick={this.closeModal}>Zavřít</button>
         </Modal>
       </TransactionDisplay>
     );

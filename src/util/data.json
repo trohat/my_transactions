@@ -43,7 +43,7 @@
       "id": 1512196865000
     },
     {
-      "name": "elit ex",
+      "name": "elit ex brezen",
       "type": "expense",
       "value": 493,
       "created": 1520275405000,
@@ -78,7 +78,7 @@
       "id": 1509693681000
     },
     {
-      "name": "nulla cillum",
+      "name": "tohle je taky unor",
       "type": "income",
       "value": 860,
       "created": 1519621971000,
@@ -148,7 +148,7 @@
       "id": 1512306912000
     },
     {
-      "name": "et in",
+      "name": "et in unor",
       "type": "expense",
       "value": 41,
       "created": 1519100479000,
@@ -204,7 +204,7 @@
       "id": 1511665901000
     },
     {
-      "name": "ea et",
+      "name": "ea et brezen",
       "type": "income",
       "value": 123,
       "created": 1520289378000,
@@ -267,7 +267,7 @@
       "id": 1496731064000
     },
     {
-      "name": "eiusmod excepteur",
+      "name": "začátek března 2018",
       "type": "income",
       "value": 971,
       "created": 1520369987000,
@@ -344,7 +344,7 @@
       "id": 1514398041000
     },
     {
-      "name": "incididunt deserunt",
+      "name": "také březen 2018",
       "type": "expense",
       "value": 372,
       "created": 1521802228000,
@@ -365,7 +365,7 @@
       "id": 1505270503000
     },
     {
-      "name": "labore minim",
+      "name": "březen 2018",
       "type": "expense",
       "value": 646,
       "created": 1520556602000,
@@ -422,38 +422,17 @@
     },
     {
       "value": 654,
-      "name": "asdf",
+      "name": "asdf kveten",
       "type": "income",
       "created": 1526406228489,
       "id": 1522370056001
     },
     {
       "value": 99999,
-      "name": "ahoj",
+      "name": "ahoj v kvetnu",
       "type": "income",
       "created": 1526406317360,
       "id": 1522370056002
-    },
-    {
-      "name": "asdas",
-      "type": "income",
-      "value": "055",
-      "created": 1540814871572,
-      "id": 1540814871572
-    },
-    {
-      "name": "dsfdsfds",
-      "type": "income",
-      "value": "069",
-      "created": 1540814932453,
-      "id": 1540814932453
-    },
-    {
-      "name": "haha",
-      "type": "expense",
-      "value": "1",
-      "created": 1540815000837,
-      "id": 1540815000837
     },
     {
       "name": "obed",
@@ -468,6 +447,62 @@
       "value": "45",
       "created": 1540817600287,
       "id": 1540817600287
+    },
+    {
+      "name": "vyplata",
+      "type": "income",
+      "value": "50000",
+      "created": 1540819974163,
+      "id": 1540819974163
+    },
+    {
+      "name": "zvykacky",
+      "type": "expense",
+      "value": "20",
+      "created": 1540820565802,
+      "id": 1540820565802
+    },
+    {
+      "name": "Bravo Girl",
+      "type": "expense",
+      "value": "40",
+      "created": 1540820580562,
+      "id": 1540820580562
+    },
+    {
+      "name": "Magazin Blesku",
+      "type": "expense",
+      "value": "100",
+      "created": 1540820963674,
+      "id": 1540820963674
+    },
+    {
+      "name": "kocka",
+      "type": "expense",
+      "value": "5",
+      "created": 1540821315025,
+      "id": 1540821315025
+    },
+    {
+      "name": "pes",
+      "type": "expense",
+      "value": "10",
+      "created": 1540821326928,
+      "id": 1540821326928
+    },
+    {
+      "name": "Lidovky",
+      "type": "expense",
+      "value": "15",
+      "created": 1540821519585,
+      "id": 1540821519585
+    },
+    {
+      "name": "darek",
+      "type": "income",
+      "value": "100",
+      "created": 1540821539624,
+      "id": 1540821539624
     }
   ]
 }
