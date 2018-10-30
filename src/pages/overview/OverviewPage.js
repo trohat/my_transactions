@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "../../util/axios";
+import { minYear, maxYear } from "../../util/constants";
+import { daysInMonth } from "../../util/helpers";
 import DateForm from "./DateForm";
+import Balance from "./Balance";
+import InvalidDate from "./InvalidDate";
+import { StyledButton } from "./styles/pageStyles";
 
 class OverviewPage extends React.Component {
   state = {
@@ -16,7 +21,11 @@ class OverviewPage extends React.Component {
       month: 0,
       year: 2018
     },
-    showResult: false
+    result: {
+      show: false,
+      start: {},
+      end: {}
+    }
   };
 
   componentDidMount() {
@@ -30,29 +39,56 @@ class OverviewPage extends React.Component {
   };
 
   showBalance = () => {
-    this.setState(prevState => ({ showResult: !prevState.showResult }));
+    this.setState(prevState => ({
+      result: {
+        show: true,
+        start: { ...prevState.from },
+        end: { ...prevState.to }
+      }
+    }));
+  };
+
+  testDateValidity = ({ day, month, year }) => {
+    return (
+      year >= minYear &&
+      year <= maxYear &&
+      day > 0 &&
+      day <= daysInMonth(month, year)
+    );
+  };
+
+  testBothDateValidity = () => {
+    return (
+      this.testDateValidity(this.state.result.start) &&
+      this.testDateValidity(this.state.result.end)
+    );
   };
 
   render() {
     return (
       <div>
         <h2>Zobrazit celkovou bilanci</h2>
-        Od:{" "}
+        Od
         <DateForm
           id="from"
           date={this.state.from}
           updateDate={this.updateDate}
-        />{" "}
-        do:{" "}
+        />
+        do
         <DateForm id="to" date={this.state.to} updateDate={this.updateDate} />
-        <button onClick={this.showBalance}>Zobrazit!</button>
-        {this.state.showResult && (
-          <div>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-          </div>
-        )}
+        <div>
+          <StyledButton onClick={this.showBalance}>Zobrazit!</StyledButton>
+        </div>
+        {this.state.result.show &&
+          (this.testBothDateValidity() ? (
+            <Balance
+              transactions={this.state.transactions}
+              from={this.state.result.start}
+              to={this.state.result.end}
+            />
+          ) : (
+            <InvalidDate />
+          ))}
         <div>
           <Link to="/">Zpět na úvodní stránku</Link>
         </div>

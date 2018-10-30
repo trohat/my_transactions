@@ -30,6 +30,7 @@ export const StyledButton = styled.button`
   min-width: 115px;
   padding: 6px;
   margin: 4px;
+  border-radius: 5px;
 `;
 
 export const AddButton = styled(StyledButton)`

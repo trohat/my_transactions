@@ -1,6 +1,12 @@
 import React from "react";
-import { DayInput, MonthSelect, YearInput } from "./styles/formStyles";
 import { daysInMonth } from "../../util/helpers";
+import { minYear, maxYear } from "../../util/constants";
+import {
+  WrapperSpan,
+  DayInput,
+  MonthSelect,
+  YearInput
+} from "./styles/formStyles";
 
 class DateForm extends React.Component {
   state = {
@@ -49,7 +55,7 @@ class DateForm extends React.Component {
 
   render() {
     return (
-      <span>
+      <WrapperSpan>
         <DayInput
           type="number"
           name="day"
@@ -58,33 +64,34 @@ class DateForm extends React.Component {
           min="1"
           max={this.state.maxDays}
         />
+        .
         <MonthSelect
           name="month"
           value={this.props.date.month}
           onChange={this.handleMonthChange}
         >
-          <option value="0">leden</option>
-          <option value="1">únor</option>
-          <option value="2">březen</option>
-          <option value="3">duben</option>
-          <option value="4">květen</option>
-          <option value="5">červen</option>
-          <option value="6">červenec</option>
+          <option value="0">ledna</option>
+          <option value="1">února</option>
+          <option value="2">března</option>
+          <option value="3">dubna</option>
+          <option value="4">května</option>
+          <option value="5">června</option>
+          <option value="6">července</option>
           <option value="7">srpen</option>
           <option value="8">září</option>
-          <option value="9">říjen</option>
-          <option value="10">listopad</option>
-          <option value="11">prosinec</option>
+          <option value="9">října</option>
+          <option value="10">listopadu</option>
+          <option value="11">prosince</option>
         </MonthSelect>
         <YearInput
           type="number"
           name="year"
           value={this.props.date.year}
           onChange={this.handleYearChange}
-          min="1970"
-          max="2030"
+          min={minYear}
+          max={maxYear}
         />
-      </span>
+      </WrapperSpan>
     );
   }
 }
