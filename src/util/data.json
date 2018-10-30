@@ -477,25 +477,11 @@
       "id": 1540820963674
     },
     {
-      "name": "kocka",
+      "name": "kocka Skliba",
       "type": "expense",
-      "value": "5",
+      "value": "11",
       "created": 1540821315025,
       "id": 1540821315025
-    },
-    {
-      "name": "pes",
-      "type": "expense",
-      "value": "10",
-      "created": 1540821326928,
-      "id": 1540821326928
-    },
-    {
-      "name": "Lidovky",
-      "type": "expense",
-      "value": "15",
-      "created": 1540821519585,
-      "id": 1540821519585
     },
     {
       "name": "darek",
@@ -503,6 +489,20 @@
       "value": "100",
       "created": 1540821539624,
       "id": 1540821539624
+    },
+    {
+      "name": "noviny",
+      "type": "expense",
+      "value": "19",
+      "created": 1540837368319,
+      "id": 1540837368319
+    },
+    {
+      "name": "investice",
+      "type": "income",
+      "value": "1000",
+      "created": 1540911169401,
+      "id": 1540911169401
     }
   ]
 }

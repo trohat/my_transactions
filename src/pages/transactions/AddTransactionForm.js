@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   FormWrapper,
   NumberInput,
@@ -6,7 +7,7 @@ import {
   StyledSelect,
   OkButton,
   CancelButton
-} from "./transactionstyles";
+} from "./styles/formStyles";
 
 const AddTransactionForm = ({
   adding,

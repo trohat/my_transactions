@@ -1,5 +1,3 @@
-![React Akademie](logo-header.png)
-
 # Aplikace Peněženka
 
 Aplikace slouží ke každodenní evidenci příjmů a výdajů. Lze sledovat celkovou bilanci účtu za určité období (den, měsíc, celkem).

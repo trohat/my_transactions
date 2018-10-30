@@ -4,7 +4,7 @@ import axios from "../../util/axios";
 import TransactionMenu from "./TransactionMenu";
 import TransactionTable from "./TransactionTable";
 import AddTransactionForm from "./AddTransactionForm";
-import { TransactionDisplay, modalStyles } from "./transactionstyles";
+import { TransactionDisplay, modalStyles } from "./styles/pageStyles";
 
 class TransactionPage extends React.Component {
   state = {
@@ -61,9 +61,7 @@ class TransactionPage extends React.Component {
       transaction => transaction.id !== id
     );
     this.setState({ transactions });
-    axios.delete(`/transactions/${id}`).then(response => {
-      console.log(response);
-    });
+    axios.delete(`/transactions/${id}`);
   };
 
   handleChange = e => {
@@ -84,9 +82,7 @@ class TransactionPage extends React.Component {
       const id = new Date().getTime();
       newTransaction.created = id;
       newTransaction.id = id;
-      axios.post(`/transactions`, newTransaction).then(response => {
-        console.log(response.data);
-      });
+      axios.post(`/transactions`, newTransaction);
       await this.setState(prevState => ({
         transactions: [...prevState.transactions, newTransaction]
       }));
@@ -94,11 +90,7 @@ class TransactionPage extends React.Component {
         this.sortTransactions(this.state.sorted);
       }
     } else {
-      axios
-        .put(`/transactions/${newTransaction.id}`, newTransaction)
-        .then(response => {
-          console.log(response.data);
-        });
+      axios.put(`/transactions/${newTransaction.id}`, newTransaction);
       const transactions = this.state.transactions.map(
         transaction =>
           newTransaction.id === transaction.id ? newTransaction : transaction

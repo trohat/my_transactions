@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Menu,
   AddButton,
@@ -6,7 +7,7 @@ import {
   ExpenseButton,
   StyledButton,
   SortingButton
-} from "./transactionstyles";
+} from "./styles/menuStyles";
 import { getDayBoundaries, getMonthBoundaries } from "../../util/helpers";
 
 class TransactionMenu extends React.Component {
@@ -84,6 +85,9 @@ class TransactionMenu extends React.Component {
         <AddButton onClick={this.props.addTransaction}>
           Přidat novou transakci
         </AddButton>
+        <div>
+          <Link to="/">Zpět na úvodní stránku</Link>
+        </div>
       </Menu>
     );
   }

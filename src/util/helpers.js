@@ -30,3 +30,6 @@ export const getDayBoundaries = date => {
 
   return [beginning.getTime(), end.getTime()];
 };
+
+export const daysInMonth = (month, year) =>
+  32 - new Date(year, month, 32).getDate();

@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import WelcomePage from "./pages/WelcomePage";
 import TransactionPage from "./pages/transactions/TransactionPage";
-import OverviewPage from "./pages/OverviewPage";
+import OverviewPage from "./pages/overview/OverviewPage";
 
 class App extends React.Component {
   render() {
