@@ -1,4 +1,7 @@
 import React from "react";
+import Record from "./Record";
+import PropTypes from "prop-types";
+import { transactionShape } from "../../util/constants";
 import {
   Table,
   Heading,
@@ -7,7 +10,6 @@ import {
   AmountCol,
   EmptyDiv
 } from "./styles/tableStyles";
-import Record from "./Record";
 
 const TransactionTable = ({
   transactions,
@@ -47,6 +49,14 @@ const TransactionTable = ({
       )}
     </Table>
   );
+};
+
+TransactionTable.propTypes = {
+  transactions: PropTypes.arrayOf(PropTypes.shape(transactionShape)).isRequired,
+  filter: PropTypes.object.isRequired,
+  editTransaction: PropTypes.func.isRequired,
+  deleteTransaction: PropTypes.func.isRequired,
+  dataLoaded: PropTypes.bool
 };
 
 export default TransactionTable;

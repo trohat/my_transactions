@@ -1,42 +1,40 @@
 # Aplikace Peněženka
 
-Aplikace slouží ke každodenní evidenci příjmů a výdajů. Lze sledovat celkovou bilanci účtu za určité období (den, měsíc, celkem).
+Aplikace slouží ke každodenní evidenci příjmů a výdajů. Lze sledovat celkovou bilanci účtu za určité období.
 
 ## Popis
 Aplikace obsahuje 2 různé obrazovky:
 
 - Transakce
 - Přehledy
-
-Obrazovka Transakce obsahuje seznam transakcí, řazený od nejnovější po nejstarší.
+<br>
+####Obrazovka Transakce
 
 **Transakce** má následující hodnoty:
-- Typ (příjem, výdaj)
+- Typ (příjem, výdej)
 - Název
 - Částka
 - Datum a čas vytvoření
 
-Transakce je možné filtrovat podle typu (příjem, výdaj, všechny).
+Transakce je možné filtrovat podle typu (příjem, výdaj, všechny). Dále lze zobrazit jen transakce za aktuální den nebo poslední měsíc (zhruba posledních třicet dní). Také je možno transakce řadit podle data transakce.
 
-## Uživatelské scénáře
+Transakce je možné přidávat, editovat a mazat.
+<br>
+####Obrazovka Přehledy
+V přehledech lze zobrazit celkové příjmy a výdaje za určité období. Datum se zadává pomocí chytrých vstupů, které reagují na aktuální datum (při změně měsíce se přizpůsobí počet dní). Při zadání nesmyslného data i nesmyslného období (od > do) se zobrazí chybové hlášky.
 
-### 1. Vytvořit transakci
-Uživatel může vytvořit novou transakci. Vyplní základní údaje, viz výše Transakce.
+<br>
+####Rozběhnutí aplikace
+Pro nainstalování závislostí použijte
+    npm install
 
-### 2. Editovat transakci
-Uživatel může editovat existující transakci.
+Pro spuštění serveru
+`npm run server`
+(spustí se na portu 3004)
 
-### 3. Smazat transakci
-Uživatel může smazat existující transakci.
 
-### 4. Filtrovat transakce podle typu
-Uživatel může filtrovat transakce podle typu:
-- Příjmy
-- Výdaje
-- Vše
+A pro spuštění aplikace
+`npm run start`
 
-### 5. Přepínat obrazovky
-Uživatel může přepínat mezi obrazovkou Transakce a Přehledy.
 
-### 6. Zobrazovat přehledy 
-Uživatel může na obrazovce Přehledy zobrazit denní, měsíční a celkovou bilanci. U měsíční si může vybrat, za jaký měsíc se zobrazí.
+

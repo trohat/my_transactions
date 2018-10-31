@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { formatDate, getDayBoundaries } from "../../util/helpers";
+import { dateShape } from "../../util/constants";
 import {
   WrapperDiv,
   UnstyledUl,
@@ -6,7 +9,6 @@ import {
   ExpenseSpan,
   StyledSpan
 } from "./styles/balanceStyles";
-import { formatDate, getDayBoundaries } from "../../util/helpers";
 
 const Balance = ({ transactions, from, to }) => {
   const makeDate = object =>
@@ -27,10 +29,6 @@ const Balance = ({ transactions, from, to }) => {
       }
     }
   });
-
-  console.log(
-    `Zobrazují se transakce od ${new Date(date1)} do ${new Date(date2)}`
-  );
 
   return (
     <WrapperDiv>
@@ -57,6 +55,12 @@ const Balance = ({ transactions, from, to }) => {
       )}
     </WrapperDiv>
   );
+};
+
+Balance.propTypes = {
+  transactions: PropTypes.array.isRequired,
+  from: PropTypes.shape(dateShape).isRequired,
+  to: PropTypes.shape(dateShape).isRequired
 };
 
 export default Balance;

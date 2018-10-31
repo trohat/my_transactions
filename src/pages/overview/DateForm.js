@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { daysInMonth } from "../../util/helpers";
-import { minYear, maxYear } from "../../util/constants";
+import { minYear, maxYear, dateShape } from "../../util/constants";
 import {
   WrapperSpan,
   DayInput,
@@ -9,6 +10,11 @@ import {
 } from "./styles/formStyles";
 
 class DateForm extends React.Component {
+  static propTypes = {
+    date: PropTypes.shape(dateShape).isRequired,
+    updateDate: PropTypes.func.isRequired
+  };
+
   state = {
     maxDays: 31
   };

@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import {
   FormWrapper,
   NumberInput,
@@ -44,6 +44,14 @@ const AddTransactionForm = ({
       <CancelButton onClick={closeModal}>{"\u2718"}</CancelButton>
     </FormWrapper>
   );
+};
+
+AddTransactionForm.propTypes = {
+  newTransaction: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  adding: PropTypes.bool
 };
 
 export default AddTransactionForm;

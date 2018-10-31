@@ -1,4 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { formatDate } from "../../util/helpers";
+import { transactionShape } from "../../util/constants";
 import {
   RecordDiv,
   DateCol,
@@ -9,7 +12,6 @@ import {
   EditButton,
   DelButton
 } from "./styles/tableStyles";
-import { formatDate } from "../../util/helpers";
 
 const Record = ({
   item: { created, name, value, type, id },
@@ -35,6 +37,12 @@ const Record = ({
       </ButtonCol>
     </RecordDiv>
   );
+};
+
+Record.propTypes = {
+  item: PropTypes.shape(transactionShape).isRequired,
+  editTransaction: PropTypes.func.isRequired,
+  deleteTransaction: PropTypes.func.isRequired
 };
 
 export default Record;
