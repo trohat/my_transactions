@@ -8,7 +8,8 @@ Aplikace obsahuje 2 různé obrazovky:
 - Transakce
 - Přehledy
 <br>
-####Obrazovka Transakce
+
+### Obrazovka Transakce
 
 **Transakce** má následující hodnoty:
 - Typ (příjem, výdej)
@@ -20,21 +21,29 @@ Transakce je možné filtrovat podle typu (příjem, výdaj, všechny). Dále lz
 
 Transakce je možné přidávat, editovat a mazat.
 <br>
-####Obrazovka Přehledy
-V přehledech lze zobrazit celkové příjmy a výdaje za určité období. Datum se zadává pomocí chytrých vstupů, které reagují na aktuální datum (při změně měsíce se přizpůsobí počet dní). Při zadání nesmyslného data i nesmyslného období (od > do) se zobrazí chybové hlášky.
 
+### Obrazovka Přehledy
+
+V přehledech lze zobrazit celkové příjmy a výdaje za určité období. Datum se zadává pomocí chytrých vstupů, které reagují na aktuální datum (při změně měsíce se přizpůsobí počet dní). Při zadání nesmyslného data i nesmyslného období (od > do) se zobrazí chybové hlášky.
 <br>
-####Rozběhnutí aplikace
+
+### Rozběhnutí aplikace
+
 Pro nainstalování závislostí použijte
-    npm install
+```
+npm install
+```
 
 Pro spuštění serveru
-`npm run server`
+```
+npm run server
+```
 (spustí se na portu 3004)
 
 
 A pro spuštění aplikace
-`npm run start`
+```
+npm run start
+```
 
-
-
+Aplikace je optimalizována pro zobrazení na desktopu a notebooku.

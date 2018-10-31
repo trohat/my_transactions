@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundary";
 import styled from "styled-components";
 
 const Heading = styled.h2`
@@ -16,7 +17,7 @@ const WrapperDiv = styled.div`
 class WelcomePage extends React.Component {
   render() {
     return (
-      <React.Fragment>
+      <ErrorBoundary>
         <Heading>Vítejte v aplikaci moje peněženka!</Heading>
         <WrapperDiv>
           <Link to="/transactions">Zobrazit transakce</Link>
@@ -24,7 +25,7 @@ class WelcomePage extends React.Component {
         <WrapperDiv>
           <Link to="/overview">Zobrazit přehledy</Link>
         </WrapperDiv>
-      </React.Fragment>
+      </ErrorBoundary>
     );
   }
 }

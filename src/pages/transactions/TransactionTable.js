@@ -1,6 +1,7 @@
 import React from "react";
 import Record from "./Record";
 import PropTypes from "prop-types";
+import ErrorBoundary from "../ErrorBoundary";
 import { transactionShape } from "../../util/constants";
 import {
   Table,
@@ -25,29 +26,31 @@ const TransactionTable = ({
       (timeFilterAll || (from < item.created && to > item.created))
   );
   return (
-    <Table>
-      <Heading>
-        <DateCol>Datum</DateCol>
-        <DescCol>Popis</DescCol>
-        <AmountCol>Částka</AmountCol>
-      </Heading>
-      {filteredTransactions.length > 0 ? (
-        filteredTransactions.map(item => (
-          <Record
-            key={item.id}
-            item={item}
-            editTransaction={editTransaction}
-            deleteTransaction={deleteTransaction}
-          />
-        ))
-      ) : (
-        <EmptyDiv>
-          {dataLoaded
-            ? "Zadanému filtru neodpovídá žádná položka."
-            : "Načítají se data..."}
-        </EmptyDiv>
-      )}
-    </Table>
+    <ErrorBoundary>
+      <Table>
+        <Heading>
+          <DateCol>Datum</DateCol>
+          <DescCol>Popis</DescCol>
+          <AmountCol>Částka</AmountCol>
+        </Heading>
+        {filteredTransactions.length > 0 ? (
+          filteredTransactions.map(item => (
+            <Record
+              key={item.id}
+              item={item}
+              editTransaction={editTransaction}
+              deleteTransaction={deleteTransaction}
+            />
+          ))
+        ) : (
+          <EmptyDiv>
+            {dataLoaded
+              ? "Zadanému filtru neodpovídá žádná položka."
+              : "Načítají se data..."}
+          </EmptyDiv>
+        )}
+      </Table>
+    </ErrorBoundary>
   );
 };
 

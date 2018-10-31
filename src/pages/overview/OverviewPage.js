@@ -6,6 +6,7 @@ import { minYear, maxYear } from "../../util/constants";
 import DateForm from "./DateForm";
 import Balance from "./Balance";
 import InvalidDate from "./InvalidDate";
+import ErrorBoundary from "../ErrorBoundary";
 import { StyledButton } from "./styles/pageStyles";
 
 class OverviewPage extends React.Component {
@@ -66,7 +67,7 @@ class OverviewPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <ErrorBoundary>
         <h2>Zobrazit celkovou bilanci</h2>
         Od
         <DateForm
@@ -92,7 +93,7 @@ class OverviewPage extends React.Component {
         <div>
           <Link to="/">Zpět na úvodní stránku</Link>
         </div>
-      </div>
+      </ErrorBoundary>
     );
   }
 }

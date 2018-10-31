@@ -4,6 +4,7 @@ import axios from "../../util/axios";
 import TransactionMenu from "./TransactionMenu";
 import TransactionTable from "./TransactionTable";
 import AddTransactionForm from "./AddTransactionForm";
+import ErrorBoundary from "../ErrorBoundary";
 import { TransactionDisplay, modalStyles } from "./styles/pageStyles";
 
 class TransactionPage extends React.Component {
@@ -126,34 +127,36 @@ class TransactionPage extends React.Component {
 
   render() {
     return (
-      <TransactionDisplay>
-        <TransactionMenu
-          changeTypeFilter={this.changeTypeFilter}
-          changeTimeFilter={this.changeTimeFilter}
-          sortTransactions={this.sortTransactions}
-          addTransaction={this.addTransaction}
-        />
-        <TransactionTable
-          transactions={this.state.transactions}
-          filter={this.state.filter}
-          editTransaction={this.editTransaction}
-          deleteTransaction={this.deleteTransaction}
-          dataLoaded={this.state.dataLoaded}
-        />
-        <Modal
-          isOpen={this.state.showModal}
-          style={modalStyles}
-          ariaHideApp={false}
-        >
-          <AddTransactionForm
-            adding={this.state.adding}
-            newTransaction={this.state.newTransaction}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            closeModal={this.closeModal}
+      <ErrorBoundary>
+        <TransactionDisplay>
+          <TransactionMenu
+            changeTypeFilter={this.changeTypeFilter}
+            changeTimeFilter={this.changeTimeFilter}
+            sortTransactions={this.sortTransactions}
+            addTransaction={this.addTransaction}
           />
-        </Modal>
-      </TransactionDisplay>
+          <TransactionTable
+            transactions={this.state.transactions}
+            filter={this.state.filter}
+            editTransaction={this.editTransaction}
+            deleteTransaction={this.deleteTransaction}
+            dataLoaded={this.state.dataLoaded}
+          />
+          <Modal
+            isOpen={this.state.showModal}
+            style={modalStyles}
+            ariaHideApp={false}
+          >
+            <AddTransactionForm
+              adding={this.state.adding}
+              newTransaction={this.state.newTransaction}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              closeModal={this.closeModal}
+            />
+          </Modal>
+        </TransactionDisplay>
+      </ErrorBoundary>
     );
   }
 }
