@@ -43,7 +43,7 @@
       "id": 1512196865000
     },
     {
-      "name": "elit ex brezen",
+      "name": "elit ex brezen 1",
       "type": "expense",
       "value": 493,
       "created": 1520275405000,
@@ -78,14 +78,14 @@
       "id": 1509693681000
     },
     {
-      "name": "tohle je taky unor",
+      "name": "tohle je taky unor 5",
       "type": "income",
       "value": 860,
       "created": 1519621971000,
       "id": 1519621971000
     },
     {
-      "name": "fugiat laboris",
+      "name": "fugiat laboris unor 3",
       "type": "income",
       "value": 168,
       "created": 1519003227000,
@@ -127,7 +127,7 @@
       "id": 1484446962000
     },
     {
-      "name": "incididunt laborum",
+      "name": "incididunt laborum unor 2",
       "type": "income",
       "value": 460,
       "created": 1518404994000,
@@ -148,7 +148,7 @@
       "id": 1512306912000
     },
     {
-      "name": "et in unor",
+      "name": "et in unor 4",
       "type": "expense",
       "value": 41,
       "created": 1519100479000,
@@ -204,7 +204,7 @@
       "id": 1511665901000
     },
     {
-      "name": "ea et brezen",
+      "name": "ea et brezen 2",
       "type": "income",
       "value": 123,
       "created": 1520289378000,
@@ -267,7 +267,7 @@
       "id": 1496731064000
     },
     {
-      "name": "začátek března 2018",
+      "name": "začátek brezen 3",
       "type": "income",
       "value": 971,
       "created": 1520369987000,
@@ -344,7 +344,7 @@
       "id": 1514398041000
     },
     {
-      "name": "také březen 2018",
+      "name": "také březen 2018 5",
       "type": "expense",
       "value": 372,
       "created": 1521802228000,
@@ -365,14 +365,14 @@
       "id": 1505270503000
     },
     {
-      "name": "březen 2018",
+      "name": "březen 2018 4",
       "type": "expense",
       "value": 646,
       "created": 1520556602000,
       "id": 1520556602000
     },
     {
-      "name": "nulla nulla",
+      "name": "nulla nulla unor 1",
       "type": "expense",
       "value": 134,
       "created": 1518300397000,
@@ -422,14 +422,14 @@
     },
     {
       "value": 654,
-      "name": "asdf kveten",
+      "name": "asdf kveten 1",
       "type": "income",
       "created": 1526406228489,
       "id": 1522370056001
     },
     {
       "value": 99999,
-      "name": "ahoj v kvetnu",
+      "name": "ahoj v kvetnu 2",
       "type": "income",
       "created": 1526406317360,
       "id": 1522370056002
@@ -470,21 +470,21 @@
       "id": 1540820580562
     },
     {
-      "name": "Magazin Blesku",
+      "name": "Magazín Blesku (je super drahej)",
       "type": "expense",
       "value": "100",
       "created": 1540820963674,
       "id": 1540820963674
     },
     {
-      "name": "kocka Skliba",
+      "name": "kocka Šklíba",
       "type": "expense",
-      "value": "11",
+      "value": "110",
       "created": 1540821315025,
       "id": 1540821315025
     },
     {
-      "name": "darek",
+      "name": "dárek",
       "type": "income",
       "value": "100",
       "created": 1540821539624,
@@ -498,11 +498,18 @@
       "id": 1540837368319
     },
     {
-      "name": "investice",
+      "name": "odměna za napsanou aplikaci Peněženka",
       "type": "income",
       "value": "1000",
-      "created": 1540911169401,
-      "id": 1540911169401
+      "created": 1540931977374,
+      "id": 1540931977374
+    },
+    {
+      "name": "čokoláda",
+      "type": "expense",
+      "value": "20",
+      "created": 1540932162152,
+      "id": 1540932162152
     }
   ]
 }

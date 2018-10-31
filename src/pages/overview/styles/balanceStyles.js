@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { plusColor, minusColor } from "../../../util/constants";
 
 export const WrapperDiv = styled.div`
-  margin-top: 23px;
+  margin-top: -6px;
   margin-bottom: 50px;
   font-size: 1.2em;
 `;

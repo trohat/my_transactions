@@ -85,3 +85,8 @@ export const EditButton = styled(RecordButton)``;
 export const DelButton = styled(RecordButton)`
   margin-right: 3px;
 `;
+
+export const EmptyDiv = styled.div`
+  text-align: center;
+  margin-top: 40%;
+`;

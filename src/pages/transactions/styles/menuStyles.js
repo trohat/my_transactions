@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { plusColor, minusColor } from "../../../util/constants";
+import { plusColor, minusColor, notebookHeight } from "../../../util/constants";
 
 export const Menu = styled.div`
   width: 20%;
@@ -7,17 +7,44 @@ export const Menu = styled.div`
 
   h2 {
     margin-bottom: 45px;
+
+    @media only screen and (max-height: 850px) {
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    @media only screen and (max-height: ${notebookHeight}) {
+      margin-bottom: 20px;
+      margin-top: 10px;
+    }
   }
 
   h3 {
     margin-top: 45px;
     margin-bottom: 6px;
+
+    @media only screen and (max-height: 850px) {
+      margin-top: 15px;
+    }
+
+    @media only screen and (max-height: ${notebookHeight}) {
+      margin-top: 10px;
+    }
   }
 
   & ul {
     padding-left: 0px;
     margin-top: 15px;
     margin-bottom: 30px;
+
+    @media only screen and (max-height: 850px) {
+      margin-bottom: 20px;
+    }
+
+    @media only screen and (max-height: ${notebookHeight}) {
+      margin-bottom: 15px;
+      margin-top: 10px;
+    }
   }
 
   & li {
@@ -38,6 +65,16 @@ export const AddButton = styled(StyledButton)`
   margin-top: 30px;
   padding: 10px;
   font-size: 0.9em;
+
+  @media only screen and (max-height: 850px) {
+    margin-top: 17px;
+    margin-bottom: 40px;
+  }
+
+  @media only screen and (max-height: ${notebookHeight}) {
+    margin-top: 17px;
+    margin-bottom: 30px;
+  }
 `;
 
 export const IncomeButton = styled(StyledButton)`

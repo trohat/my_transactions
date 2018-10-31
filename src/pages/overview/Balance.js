@@ -34,24 +34,27 @@ const Balance = ({ transactions, from, to }) => {
 
   return (
     <WrapperDiv>
-      <div>
-        {date2 >= date1
-          ? `Celková bilance od ${formatDate(date1)} do ${formatDate(
-              date2
-            )} včetně:`
-          : "Druhé datum by mělo být později než to první (nebo mohou být stejná)."}
-      </div>
-      <UnstyledUl>
-        <li>
-          Příjmy: <IncomeSpan> {incomes} Kč </IncomeSpan>
-        </li>
-        <li>
-          Výdaje: <ExpenseSpan> {expenses} Kč </ExpenseSpan>
-        </li>
-        <li>
-          Celkem: <StyledSpan> {incomes - expenses} Kč </StyledSpan>
-        </li>
-      </UnstyledUl>
+      <p>
+        Celková bilance od {formatDate(date1)} do {formatDate(date2)} včetně:
+      </p>
+      {date2 >= date1 ? (
+        <UnstyledUl>
+          <li>
+            Příjmy: <IncomeSpan> {incomes} Kč </IncomeSpan>
+          </li>
+          <li>
+            Výdaje: <ExpenseSpan> {expenses} Kč </ExpenseSpan>
+          </li>
+          <li>
+            Celkem: <StyledSpan> {incomes - expenses} Kč </StyledSpan>
+          </li>
+        </UnstyledUl>
+      ) : (
+        <p>
+          To nedává smysl. <br />
+          Druhé datum by mělo být pozdější než to první (nebo mohou být stejná).
+        </p>
+      )}
     </WrapperDiv>
   );
 };

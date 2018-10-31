@@ -4,7 +4,8 @@ import {
   Heading,
   DateCol,
   DescCol,
-  AmountCol
+  AmountCol,
+  EmptyDiv
 } from "./styles/tableStyles";
 import Record from "./Record";
 
@@ -12,9 +13,15 @@ const TransactionTable = ({
   transactions,
   filter: { type, from, to },
   editTransaction,
-  deleteTransaction
+  deleteTransaction,
+  dataLoaded
 }) => {
   const timeFilterAll = to === 0;
+  const filteredTransactions = transactions.filter(
+    item =>
+      (type === "all" || type === item.type) &&
+      (timeFilterAll || (from < item.created && to > item.created))
+  );
   return (
     <Table>
       <Heading>
@@ -22,19 +29,21 @@ const TransactionTable = ({
         <DescCol>Popis</DescCol>
         <AmountCol>Částka</AmountCol>
       </Heading>
-      {transactions.map(
-        item =>
-          (type === "all" || type === item.type) &&
-          (timeFilterAll || (from < item.created && to > item.created)) ? (
-            <Record
-              key={item.id}
-              item={item}
-              editTransaction={editTransaction}
-              deleteTransaction={deleteTransaction}
-            />
-          ) : (
-            ""
-          )
+      {filteredTransactions.length > 0 ? (
+        filteredTransactions.map(item => (
+          <Record
+            key={item.id}
+            item={item}
+            editTransaction={editTransaction}
+            deleteTransaction={deleteTransaction}
+          />
+        ))
+      ) : (
+        <EmptyDiv>
+          {dataLoaded
+            ? "Zadanému filtru neodpovídá žádná položka."
+            : "Načítají se data..."}
+        </EmptyDiv>
       )}
     </Table>
   );

@@ -4,3 +4,5 @@ export const stripsColor = "gainsboro";
 
 export const minYear = 1970;
 export const maxYear = 2030;
+
+export const notebookHeight = "750px";

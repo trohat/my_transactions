@@ -9,6 +9,7 @@ import { TransactionDisplay, modalStyles } from "./styles/pageStyles";
 class TransactionPage extends React.Component {
   state = {
     transactions: [],
+    dataLoaded: false,
     filter: {
       type: "all",
       from: 0,
@@ -29,7 +30,7 @@ class TransactionPage extends React.Component {
 
   componentDidMount() {
     axios.get("/transactions").then(response => {
-      this.setState({ transactions: response.data });
+      this.setState({ transactions: response.data, dataLoaded: true });
     });
   }
 
@@ -137,6 +138,7 @@ class TransactionPage extends React.Component {
           filter={this.state.filter}
           editTransaction={this.editTransaction}
           deleteTransaction={this.deleteTransaction}
+          dataLoaded={this.state.dataLoaded}
         />
         <Modal
           isOpen={this.state.showModal}
