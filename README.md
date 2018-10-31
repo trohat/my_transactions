@@ -7,7 +7,6 @@ Aplikace obsahuje 2 různé obrazovky:
 
 - Transakce
 - Přehledy
-<br>
 
 ### Obrazovka Transakce
 
