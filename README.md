@@ -1,3 +1,5 @@
+Final project for a React course taught in Inventi in Prague in October 2018.
+
 # Aplikace Peněženka
 
 Aplikace slouží ke každodenní evidenci příjmů a výdajů. Lze sledovat celkovou bilanci účtu za určité období.
